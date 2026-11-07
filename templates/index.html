@@ -1,0 +1,316 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Safari AI | Intelligent Travel Planner</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<div class="app-container">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+
+        <div class="brand">
+            <div class="brand-icon">✈</div>
+            <div>
+                <h2>Safari<span>AI</span></h2>
+                <small>Intelligent travel planner</small>
+            </div>
+        </div>
+
+        <button class="new-chat-btn" id="newChatBtn">
+            <span>＋</span> New trip
+        </button>
+
+        <div class="sidebar-section">
+            <p class="section-label">EXPLORE</p>
+
+            <a class="nav-item active" href="#">
+                <span>⌂</span> Travel planner
+            </a>
+
+            <a class="nav-item" href="#results">
+                <span>✈</span> Flight results
+            </a>
+
+            <a class="nav-item" href="#hotels">
+                <span>⌂</span> Hotels
+            </a>
+
+            <a class="nav-item" href="#itinerary">
+                <span>▤</span> Itinerary
+            </a>
+        </div>
+
+        <div class="sidebar-bottom">
+            <div class="assistant-status">
+                <span class="status-dot"></span>
+                <div>
+                    <strong>Safari AI is ready</strong>
+                    <small>Your personal travel assistant</small>
+                </div>
+            </div>
+
+            <div class="profile">
+                <div class="avatar">SA</div>
+                <div>
+                    <strong>Travel Explorer</strong>
+                    <small>AI Travel Assistant</small>
+                </div>
+            </div>
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+        <header class="topbar">
+
+            <button class="mobile-menu" id="menuBtn">☰</button>
+
+            <div>
+                <p class="breadcrumb">WORKSPACE / TRAVEL PLANNER</p>
+                <h3>Plan your next adventure</h3>
+            </div>
+
+            <div class="topbar-right">
+                <span class="online-indicator"></span>
+                <span>AI Online</span>
+            </div>
+
+        </header>
+
+
+        <div class="workspace">
+
+            <!-- CHAT SECTION -->
+            <section class="chat-section">
+
+                <div class="welcome-section" id="welcomeSection">
+
+                    <div class="welcome-icon">🌍</div>
+
+                    <p class="eyebrow">YOUR PERSONAL AI TRAVEL AGENT</p>
+
+                    <h1>Where would you<br>
+                        <span>like to explore?</span>
+                    </h1>
+
+                    <p class="welcome-description">
+                        Tell me where you want to go, when you want to travel,
+                        and what kind of experience you're looking for.
+                        I'll help organize your entire journey.
+                    </p>
+
+                    <div class="suggestion-grid">
+
+                        <button class="suggestion-card"
+                            data-prompt="Plan a 5-day trip to Mombasa, Kenya. Include flights, hotels and a daily itinerary.">
+                            <span>🏖️</span>
+                            <strong>Beach vacation</strong>
+                            <small>Discover beautiful beaches</small>
+                        </button>
+
+                        <button class="suggestion-card"
+                            data-prompt="Plan a safari adventure in Maasai Mara with accommodation and activities.">
+                            <span>🦁</span>
+                            <strong>Safari adventure</strong>
+                            <small>Explore African wildlife</small>
+                        </button>
+
+                        <button class="suggestion-card"
+                            data-prompt="Plan a budget-friendly trip to Dubai for 4 days including flights and hotels.">
+                            <span>🏙️</span>
+                            <strong>City exploration</strong>
+                            <small>Discover exciting cities</small>
+                        </button>
+
+                        <button class="suggestion-card"
+                            data-prompt="Help me plan an international trip from Nairobi to London. Include flights, hotels and sightseeing.">
+                            <span>🌐</span>
+                            <strong>International trip</strong>
+                            <small>Explore the world</small>
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- CONVERSATION -->
+                <div class="conversation" id="conversation">
+
+                    <div class="chat-messages" id="chatMessages"></div>
+
+                </div>
+
+
+                <!-- LOADING INDICATOR -->
+                <div class="loading-indicator" id="loadingIndicator">
+
+                    <div class="typing-dots">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+
+                    <div>
+                        <strong>Safari AI is planning your trip</strong>
+                        <small>Researching travel options and building your itinerary...</small>
+                    </div>
+
+                </div>
+
+
+                <!-- INPUT AREA -->
+                <div class="input-area">
+
+                    <div class="input-wrapper">
+
+                        <textarea
+                            id="messageInput"
+                            rows="1"
+                            placeholder="Ask Safari AI to plan your next adventure..."
+                        ></textarea>
+
+                        <div class="input-footer">
+
+                            <span>✦ Powered by multi-agent AI</span>
+
+                            <button id="sendBtn" class="send-btn">
+                                <span>➤</span>
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                    <p class="input-disclaimer">
+                        Safari AI can make mistakes. Verify travel details before booking.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <!-- RESULTS PANEL -->
+            <aside class="results-panel">
+
+                <div class="panel-heading">
+                    <div>
+                        <p class="eyebrow">YOUR JOURNEY</p>
+                        <h3>Travel overview</h3>
+                    </div>
+
+                    <span class="globe-icon">🌍</span>
+                </div>
+
+
+                <div class="trip-card">
+
+                    <div class="trip-card-top">
+                        <span>TRIP STATUS</span>
+                        <span class="trip-status" id="tripStatus">Not started</span>
+                    </div>
+
+                    <h3 id="tripDestination">Your next adventure</h3>
+
+                    <p id="tripDescription">
+                        Your travel recommendations will appear here.
+                    </p>
+
+                    <div class="trip-stats">
+
+                        <div>
+                            <span>✈</span>
+                            <strong id="flightCount">0</strong>
+                            <small>Flights</small>
+                        </div>
+
+                        <div>
+                            <span>⌂</span>
+                            <strong id="hotelCount">0</strong>
+                            <small>Hotels</small>
+                        </div>
+
+                        <div>
+                            <span>▤</span>
+                            <strong id="dayCount">0</strong>
+                            <small>Days</small>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- FLIGHTS -->
+                <div class="result-section" id="results">
+
+                    <div class="result-heading">
+                        <h3>✈ Flight options</h3>
+                        <span id="flightBadge">0</span>
+                    </div>
+
+                    <div id="flightResults" class="result-list empty-state">
+                        Flight recommendations will appear here.
+                    </div>
+
+                </div>
+
+
+                <!-- HOTELS -->
+                <div class="result-section" id="hotels">
+
+                    <div class="result-heading">
+                        <h3>🏨 Hotels</h3>
+                        <span id="hotelBadge">0</span>
+                    </div>
+
+                    <div id="hotelResults" class="result-list empty-state">
+                        Hotel recommendations will appear here.
+                    </div>
+
+                </div>
+
+
+                <!-- ITINERARY -->
+                <div class="result-section" id="itinerary">
+
+                    <div class="result-heading">
+                        <h3>📍 Your itinerary</h3>
+                    </div>
+
+                    <div id="itineraryResults" class="itinerary-list empty-state">
+                        Your travel schedule will appear here.
+                    </div>
+
+                </div>
+
+            </aside>
+
+        </div>
+
+    </main>
+
+</div>
+
+<script src="/static/script.js"></script>
+
+</body>
+</html>
